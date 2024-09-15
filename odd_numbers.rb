@@ -10,9 +10,12 @@ def odd_numbers(n1,n2)
     num2 = n1
   end
 
-  # Loops through and prints out all the odd numbers
-  for i in num..num2
-    puts i if (i%2==1) 
+  # Loops through and prints out all the odd numbers and add them to a file
+  File.open('odd.txt', 'w') do |file|
+    for i in num..num2
+      file << i if (i%2==1) 
+      file << ' '
+    end
   end
 end
 
