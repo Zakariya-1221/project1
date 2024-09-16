@@ -3,6 +3,9 @@
 
 def median(*data)
   len = data.length
+  if len == 0
+    return nil
+  end
   i = 0
   # sorting the data in ascending order
   while i < len
@@ -29,3 +32,6 @@ end
 #test cases
 puts median(20, 56, 1, 59, 3)   # 20
 puts median(2, 6, 8, 1, 5, 3, 4, 9)   # 4.5
+puts median()   # nil
+puts median(1)   # 1
+puts median(1,2)   # 1.5

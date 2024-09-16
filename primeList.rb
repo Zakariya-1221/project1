@@ -29,3 +29,6 @@ end
 
 # test cases
 primeList(30)
+primeList(1)
+primeList(2)
+primeList(3)
