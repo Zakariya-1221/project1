@@ -1,4 +1,4 @@
- def sin(x)
+  def sin(x)
     return Math.sin(x)
   end
 
