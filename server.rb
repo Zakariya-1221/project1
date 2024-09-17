@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/cross_origin'
 require 'json'
-require_relative 'evaluate'
+require_relative 'evaluatePostfixExpression'
 
 # Enable cross-origin requests
 configure do
@@ -22,9 +22,9 @@ before do
     response.headers["Access-Control-Allow-Origin"] = "*"
 end
 
-#Existing POST /evaluate route
-post '/evaluate' do
+#Existing POST /evaluatePostfixExpression route
+post '/evaluatePostfixExpression' do
   expression = JSON.parse(request.body.read)["expression"]
-  result = evaluate_expression(expression) # call the global function evaluate_expression
+  result = evaluatePostfixExpression(expression) # call the global function evaluatePostfixExpression
   { result: result }.to_json
 end

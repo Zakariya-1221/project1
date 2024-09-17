@@ -1,7 +1,13 @@
 # Part of calculator project
 # A function to evaluate a postfix expression to get the result
-
-def evaluatePostfixExpression(postfixStack)
+#include the tokenize and infix_to_postfix functions by requiring the files
+require_relative 'tokenize'
+require_relative 'infix_to_postfix'
+def evaluatePostfixExpression(expression)
+  #Call the tokenize function to get the tokens
+  tokens = tokenize(expression)
+  #Call the infix_to_postfix function to get the postfix expression
+  postfixStack = infix_to_postfix(tokens)
   stack = []  # create an empty stack
   # iterate through the expression
   postfixStack.each do |token|
@@ -34,11 +40,11 @@ def evaluatePostfixExpression(postfixStack)
 end
 
 # test cases
-puts evaluatePostfixExpression(["4", "2", "+", "5", "4", "-", "*"])   # 6
-puts evaluatePostfixExpression(["4", "2", "+", "4", "4", "-", "/"])   # ERROR: Division by zero
-puts evaluatePostfixExpression(["4", "2", "+", "6", "1", "-", "%"])   # 1
-puts evaluatePostfixExpression(["4", "2", "+", "5", "1", "-", "%"])   # 2
-puts evaluatePostfixExpression(["0", "2", "*"])   # 0
-puts evaluatePostfixExpression(["0", "2", "+"])   # 2
-puts evaluatePostfixExpression(["1", "2", "-"])   # -1
-puts evaluatePostfixExpression(["-1", "-2", "+"])   # -3
+# puts evaluatePostfixExpression(["4", "2", "+", "5", "4", "-", "*"])   # 6
+# puts evaluatePostfixExpression(["4", "2", "+", "4", "4", "-", "/"])   # ERROR: Division by zero
+# puts evaluatePostfixExpression(["4", "2", "+", "6", "1", "-", "%"])   # 1
+# puts evaluatePostfixExpression(["4", "2", "+", "5", "1", "-", "%"])   # 2
+# puts evaluatePostfixExpression(["0", "2", "*"])   # 0
+# puts evaluatePostfixExpression(["0", "2", "+"])   # 2
+# puts evaluatePostfixExpression(["1", "2", "-"])   # -1
+# puts evaluatePostfixExpression(["-1", "-2", "+"])   # -3
