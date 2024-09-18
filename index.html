@@ -53,15 +53,14 @@
 
     <script>
         function evaluateExpression() {
-            const expressionString = document.getElementById('expression').value;
-            const expressionArray = expressionString.split(/\s+/);
+            const expression = document.getElementById('expression').value;
             
-            fetch('/evaluatePostfixExpression', {
+            fetch("http://localhost:4567/evaluatePostfixExpression", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ expression: expressionArray })
+                body: JSON.stringify({ expression: expression })
             })
             .then(response => response.json())
             .then(data => {
